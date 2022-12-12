@@ -1,0 +1,70 @@
+body{
+	margin: 0 auto;
+	/* background-image: url("C:/xampp/htdocs/New folder/Assignment_2/imgbg.png"); */
+	/* background-repeat: no-repeat; */
+    background-color: white;
+	background-size: 100%;
+}
+.row{
+    border-radius: 30px;
+    box-shadow: 12px 12px 22px grey;
+}
+.img{
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.btn1{
+    border: none;
+    outline: none;
+    height:50px;
+    width: 100%;
+    background-color: black;
+    color:white;
+    border-radius: 4px;
+    font-weight: bold;
+}
+.btn1:hover{
+    background-color: white;
+    border: 1px solid;
+    color:black;
+}
+/* 
+.container{
+	width: 500px;
+	height: 450px;
+	text-align: center;
+	margin: 0 auto;
+	background-color: rgba(44, 62, 80,0.7);
+	margin-top: 160px;
+}
+
+.container img{
+	width: 150px;
+	height: 150px;
+	margin-top: -60px;
+} */
+
+input[type="text"],input[type="password"]{
+	margin-top: 30px;
+	height: 45px;
+	width: 300px;
+	font-size: 18px;
+	margin-bottom: 20px;
+	background-color: #fff;
+	padding-left: 40px;
+}
+
+
+
+.btn-login{
+	padding: 15px 25px;
+	border: none;
+	background-color: #27ae60;
+	color: #fff;
+}
+.title{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
