@@ -1,0 +1,16 @@
+CREATE TABLE USER_T (username varchar(100) NOT NULL, password varchar(255), fname varchar(50), lname varchar(50), email varchar(100), phone varchar(45), address varchar(255), zipcode varchar(50), country varchar(100), PRIMARY KEY (username));
+CREATE TABLE BOOK_T (bookid int(11) NOT NULL AUTO_INCREMENT, booktitle varchar(255) NOT NULL, author varchar(255), price decimal(10,2), publicationdate varchar(50), description varchar(1024), imageUrl varchar(1024), genre varchar(255), discount decimal(10,2), PRIMARY KEY (bookid));
+CREATE TABLE ORDER_T (username varchar(100) NOT NULL, orderid int(10) NOT NULL AUTO_INCREMENT, PRIMARY KEY (orderid));
+CREATE TABLE ORDER_BOOK_T (orderid int(10) NOT NULL, quantity tinyint(2), booktitle varchar(255) NOT NULL, bookid int(11) NOT NULL, PRIMARY KEY (orderid,booktitle, bookid));
+CREATE TABLE MESSAGES_T (username varchar(100), messageid int(100) NOT NULL AUTO_INCREMENT, fname varchar(50), lname varchar(50), email varchar(100), subject varchar(255), message varchar(10000), PRIMARY KEY (messageid));
+CREATE TABLE ADMIN_T (uname varchar(100) NOT NULL, pass varchar(255), PRIMARY KEY (uname));
+CREATE TABLE CONTACT_T (fname varchar(155), lname varchar(155), email varchar(100) NOT NULL, phone varchar(100), subject varchar(255), message varchar(10000), PRIMARY KEY (email));
+CREATE TABLE RENT_BOOK_T (username varchar(100) , rent_id int(100) NOT NULL AUTO_INCREMENT, r_title varchar(255), r_author varchar(255), rentPrice decimal(10,2), rentDate varchar(100), imageUrl varchar(1024), r_genre varchar(255), r_description varchar(1024), rAvailable tinyint(2), rpubDate varchar(50), PRIMARY KEY (rent_id));
+CREATE TABLE USER_T_RENT_BOOK_T (username varchar(100) NOT NULL, username2 varchar(100),rent_id int(100) NOT NULL, PRIMARY KEY (username, username2, rent_id));
+ALTER TABLE ORDER_T ADD CONSTRAINT FKORDER_T326182 FOREIGN KEY (username) REFERENCES USER_T (username) ON DELETE CASCADE;
+ALTER TABLE ORDER_BOOK_T ADD CONSTRAINT FKORDER_BOOK154028 FOREIGN KEY (bookid) REFERENCES BOOK_T (bookid)ON DELETE CASCADE;
+ALTER TABLE ORDER_BOOK_T ADD CONSTRAINT FKORDER_BOOK640714 FOREIGN KEY (orderid) REFERENCES ORDER_T (orderid)ON DELETE CASCADE;
+ALTER TABLE MESSAGES_T ADD CONSTRAINT FKMESSAGES_T810836 FOREIGN KEY (username) REFERENCES USER_T (username)ON DELETE CASCADE;
+ALTER TABLE RENT_BOOK_T ADD CONSTRAINT FKRENT_BOOK_786285 FOREIGN KEY (username) REFERENCES USER_T (username)ON DELETE CASCADE;
+ALTER TABLE USER_T_RENT_BOOK_T ADD CONSTRAINT FKUSER_T_REN480100 FOREIGN KEY (username) REFERENCES USER_T (username)ON DELETE CASCADE;
+ALTER TABLE USER_T_RENT_BOOK_T ADD CONSTRAINT FKUSER_T_REN849403 FOREIGN KEY (username2, rent_id) REFERENCES RENT_BOOK_T (username, rent_id)ON DELETE CASCADE;
